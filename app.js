@@ -5,19 +5,17 @@ function addTask() {
   let taskText = inputTask.value;
 
   if (taskText === "") {
-    alert("Veuillez ajouter une tâche");
+    return;
   }
 
   let li = document.createElement("li");
   li.innerHTML = taskText;
 
-  console.log(li);
-
   let editButton = document.createElement("button");
   editButton.innerHTML =
     '<ion-icon name="pencil-outline" class="modify"></ion-icon>';
 
-  console.log(editButton);
+  //   console.log(editButton);
 
   editButton.onclick = () => {
     editTask(li);
@@ -31,8 +29,6 @@ function addTask() {
     deleteTask(li);
   };
 
-  console.log(deleteButton);
-
   li.appendChild(editButton);
   li.appendChild(deleteButton);
 
@@ -40,3 +36,20 @@ function addTask() {
 
   inputTask.value = "";
 }
+
+editTask = (task) => {
+  taskTextElement = task.firstChild;
+  textTask = taskTextElement.textContent;
+
+  let newTaskText = prompt("Modifier la tâche", textTask);
+
+  if (newTaskText === null || newTaskText === "") {
+    return;
+  }
+
+  taskTextElement.textContent = newTaskText;
+};
+
+deleteTask = (task) => {
+  taskList.removeChild(task);
+};
