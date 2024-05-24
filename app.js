@@ -1,33 +1,26 @@
 let taskList = document.getElementById("taskList");
 
 function addTask() {
-  let inputTask = document.getElementById("inputTask");
-  let taskText = inputTask.value;
+  const inputTask = document.getElementById("inputTask");
+  const taskText = inputTask.value.trim();
 
-  if (taskText === "") {
+  if (!taskText) {
     return;
   }
 
-  let li = document.createElement("li");
-  li.innerHTML = taskText;
+  const li = document.createElement("li");
+  li.textContent = taskText;
 
-  let editButton = document.createElement("button");
-  editButton.innerHTML =
-    '<ion-icon name="pencil-outline" class="modify"></ion-icon>';
-
-  //   console.log(editButton);
-
-  editButton.onclick = () => {
-    editTask(li);
-  };
-
-  let deleteButton = document.createElement("button");
-  deleteButton.innerHTML =
-    '<ion-icon name="trash-outline" class="delete"></ion-icon>';
-
-  deleteButton.onclick = () => {
-    deleteTask(li);
-  };
+  const editButton = createButton(
+    "pencil-outline",
+    "modify",
+    editTask.bind(null, li)
+  );
+  const deleteButton = createButton(
+    "trash-outline",
+    "delete",
+    deleteTask.bind(null, li)
+  );
 
   li.appendChild(editButton);
   li.appendChild(deleteButton);
@@ -37,17 +30,22 @@ function addTask() {
   inputTask.value = "";
 }
 
+function createButton(iconName, Class, onClick) {
+  const button = document.createElement("button");
+  button.innerHTML = `<ion-icon name="${iconName}", class="${Class}"></ion-icon>`;
+  button.onclick = onClick;
+  return button;
+}
+
 editTask = (task) => {
-  taskTextElement = task.firstChild;
-  textTask = taskTextElement.textContent;
+  const taskTextElement = task.firstChild;
+  const textTask = taskTextElement.textContent;
 
-  let newTaskText = prompt("Modifier la tâche", textTask);
+  const newTaskText = prompt("Modifier la tâche", textTask);
 
-  if (newTaskText === null || newTaskText === "") {
-    return;
+  if (newTaskText !== null && newTaskText !== "") {
+    taskTextElement.textContent = newTaskText;
   }
-
-  taskTextElement.textContent = newTaskText;
 };
 
 deleteTask = (task) => {
