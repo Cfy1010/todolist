@@ -1,0 +1,71 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background: #c8e5bf;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.champs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(red, green, blue, 0, 1);
+}
+
+ion-icon {
+  font-size: 2rem;
+  background: #189026;
+  border-radius: 50%;
+  color: azure;
+  padding: 0.5rem;
+}
+
+.delete {
+  background: rgb(218, 21, 61);
+}
+
+.modify {
+  background: #f6ee59;
+  color: black;
+}
