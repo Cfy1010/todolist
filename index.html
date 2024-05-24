@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
     <title>Document</title>
 </head>
 
@@ -13,7 +14,7 @@
     <h1>Ma TodoList</h1>
     <div class="container">
         <div class="champs">
-            <input type="text" id="inputtask" placeholder="Ajoute une tâche">
+            <input type="text" id="inputTask" placeholder="Ajoute une tâche">
             <button onclick="addTask()">
                 <ion-icon name="add-circle-outline"></ion-icon>
             </button>
@@ -21,11 +22,8 @@
         <ul id="taskList"></ul>
     </div>
 
-
-
-
-
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="app.js"></script>
 </body>
 
